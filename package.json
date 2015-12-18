@@ -1,0 +1,14 @@
+{
+  "name": "coffeepipe-bash",
+  "version": "1.0.0",
+  "description": "mix bash & coffeescript-fu on the commandline with coffeepipe",
+  "main": "index.js",
+  "bin": {"cfp": "./cli.coffee"}
+  "scripts": {
+    "post_install": "npm link coffeescript",
+    "test": "./test/test"
+  },
+  "keywords":["bash","coffeescript","filter","pipe","bashfu","commandline","cli","shell","coffeefu","commandlinefu"],
+  "author": "",
+  "license": "ISC"
+}

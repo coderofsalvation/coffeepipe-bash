@@ -1,0 +1,23 @@
+#!/bin/bash 
+
+{
+  cd "$(dirname "$(readlink -f "$0")" )/.."
+
+  cfp(){ cat - | ./cli.coffee "$*" ; }
+      
+  echo "one,two,three" | cfp '(s) -> s.split ","'
+
+  # detect json / indent json
+  echo "[1,2,3,4]"  | cfp '(s) -> JSON.stringify(s,null,2)'
+
+  # search / replace
+  echo "foo"        | cfp '(s) -> s.replace /foo/, "bar"'
+
+  # process line by line
+  echo -e "foo\nbar" | cfp '(s) -> ( "output: #{line}" for line in s.split "\n")'
+
+  # filter by coffeescript file
+  echo -e "foo\nbar" | cfp ./test/filter.coffee 
+} | tee /tmp/out
+
+diff -Nau test/test.out /tmp/out && echo OK || { echo ERROR && exit 1; }
