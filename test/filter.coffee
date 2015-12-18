@@ -1,1 +1,1 @@
-(s) -> ( "output: #{line}" for line in s.split "\n")
+(s) -> ( "output: #{line}" for line in s.split "\n" )
