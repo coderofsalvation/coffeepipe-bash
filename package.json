@@ -1,9 +1,10 @@
 {
   "name": "coffeepipe-bash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "mix bash & coffeescript-fu on the commandline with coffeepipe",
   "main": "index.js",
   "bin": {"cfp": "./cli.coffee"},
+  "repository":"https://github.com/coderofsalvation/coffeepipe-bash",
   "scripts": {
     "post_install": "npm link coffeescript",
     "test": "./test/test"
