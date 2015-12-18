@@ -11,6 +11,10 @@ This turns coffeescript into a nifty awk/swish armyknife-ish tool.
 
 ## Examples
 
+> Simple eval 
+
+    $ cfp 'new Date().toString()'
+
 > search / replace
 
     $ echo "foo"           | cfp '(s) -> s.replace /foo/, "bar"'

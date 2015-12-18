@@ -26,8 +26,10 @@ withPipe = (data) ->
   return console.log JSON.stringify result
 
 withoutPipe = ->
-  if args.length 
-    console.log "without: "+process.args.join " " 
+  result = coffee.eval( getargs() )
+  return console.log result if typeof result is "string"
+  return console.log result.join "\n" if isArray(result)
+  return console.log JSON.stringify result
 
 if process.stdin.isTTY
   withoutPipe()
